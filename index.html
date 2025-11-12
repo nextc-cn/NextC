@@ -1,97 +1,135 @@
 <!DOCTYPE html>
-<html lang="en" style="height: 100%">
-
+<html lang="zh-CN">
 <head>
-    <meta charset="utf-8" />
-    <title>NextC.cn</title>
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            height: 100%;
-            background-color: #fff;
-            font-family: Arial, sans-serif;
-        }
-
-        #container {
-            width: 90%;
-            height: 90%;
-            margin: auto auto;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>仓库物料智能分拣系统</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <script src="https://unpkg.com/scrollreveal"></script>
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+  <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
+  <style>
+    html { scroll-behavior: smooth; }
+    #particles-js { position: absolute; width: 100%; height: 100%; z-index: 0; }
+    .overlay { position: relative; z-index: 1; }
+    .glow { text-shadow: 0 0 15px rgba(59,130,246,0.8); }
+  </style>
 </head>
+<body class="bg-gray-900 text-gray-100 font-sans overflow-x-hidden">
 
-<body>
-    <div id="container"></div>
+  <!-- 顶部导航 -->
+  <header class="fixed top-0 w-full bg-gray-800 bg-opacity-70 backdrop-blur-md text-white py-4 shadow-lg z-50 transition-all duration-500">
+    <div class="container mx-auto px-6 flex justify-between items-center">
+      <h1 class="text-2xl font-bold tracking-wider glow">仓库物料智能分拣系统</h1>
+      <nav class="space-x-6 text-gray-300">
+        <a href="#features" class="hover:text-blue-400 transition">功能介绍</a>
+        <a href="#cases" class="hover:text-blue-400 transition">应用场景</a>
+        <a href="#contact" class="hover:text-blue-400 transition">联系我们</a>
+      </nav>
+    </div>
+  </header>
 
-    <script type="text/javascript"
-        src="https://registry.npmmirror.com/echarts/5.5.1/files/dist/echarts.min.js"></script>
+  <!-- 英雄区 -->
+  <section class="relative flex items-center justify-center h-screen text-center">
+    <div id="particles-js"></div>
+    <div class="overlay">
+      <h2 class="text-5xl font-extrabold mb-4 glow">AI 智能分拣 · 高效仓储</h2>
+      <span id="typed-text" class="text-blue-400 text-xl"></span>
+      <div class="mt-8">
+        <a href="#features" class="bg-blue-600 hover:bg-blue-700 px-8 py-3 rounded-lg text-lg font-semibold shadow-lg transition">立即了解</a>
+      </div>
+    </div>
+  </section>
 
-    <script type="text/javascript">
-        var dom = document.getElementById('container');
-        var myChart = echarts.init(dom, null, {
-            renderer: 'canvas',
-            useDirtyRect: false
-        });
-        var app = {};
+  <!-- 功能介绍 -->
+  <section id="features" class="container mx-auto px-6 py-20">
+    <div class="text-center mb-12">
+      <h2 class="text-4xl font-bold mb-4 glow">三步完成智能分拣</h2>
+      <p class="text-gray-400 text-lg">全自动化AI识别，从数据到图片整理一步到位</p>
+    </div>
 
-        var option;
+    <div class="grid md:grid-cols-3 gap-10">
+      <div class="bg-gray-800 rounded-2xl p-6 shadow-xl transform transition hover:-translate-y-3 hover:scale-105 hover:shadow-blue-500/50 reveal">
+        <img src="智能分拣 1.png" class="rounded-lg mb-4" alt="Excel导入">
+        <h3 class="text-xl font-semibold mb-2 text-blue-400">第1步：导入Excel表格</h3>
+        <p class="text-gray-400 text-sm">支持 .xlsx 和 .xls 格式，智能识别物料编号或标签。</p>
+      </div>
 
-        option = {
-            graphic: {
-                elements: [
-                    {
-                        type: 'text',
-                        left: 'center',
-                        top: 'center',
-                        style: {
-                            text: 'NextC Software',
-                            fontSize: 80,
-                            fontWeight: 'bold',
-                            lineDash: [0, 200],
-                            lineDashOffset: 0,
-                            fill: 'transparent',
-                            stroke: '#000',
-                            lineWidth: 1
-                        },
-                        keyframeAnimation: {
-                            duration: 3000,
-                            loop: true,
-                            keyframes: [
-                                {
-                                    percent: 0.7,
-                                    style: {
-                                        fill: 'transparent',
-                                        lineDashOffset: 200,
-                                        lineDash: [200, 0]
-                                    }
-                                },
-                                {
-                                    // Stop for a while.
-                                    percent: 0.8,
-                                    style: {
-                                        fill: 'transparent'
-                                    }
-                                },
-                                {
-                                    percent: 1,
-                                    style: {
-                                        fill: '#5470c6'
-                                    }
-                                }
-                            ]
-                        }
-                    }
-                ]
-            }
-        };
+      <div class="bg-gray-800 rounded-2xl p-6 shadow-xl transform transition hover:-translate-y-3 hover:scale-105 hover:shadow-blue-500/50 reveal">
+        <img src="智能分拣 2.png" class="rounded-lg mb-4" alt="生成二维码">
+        <h3 class="text-xl font-semibold mb-2 text-blue-400">第2步：生成二维码标签</h3>
+        <p class="text-gray-400 text-sm">自动生成带二维码的Word文档，支持多种打印模板。</p>
+      </div>
 
-        if (option && typeof option === 'object') {
-            myChart.setOption(option);
-        }
+      <div class="bg-gray-800 rounded-2xl p-6 shadow-xl transform transition hover:-translate-y-3 hover:scale-105 hover:shadow-blue-500/50 reveal">
+        <img src="智能分拣-3.png" class="rounded-lg mb-4" alt="智能分类">
+        <h3 class="text-xl font-semibold mb-2 text-blue-400">第3步：照片智能分类</h3>
+        <p class="text-gray-400 text-sm">AI自动识别二维码并分类照片，大幅提升整理效率。</p>
+      </div>
+    </div>
+  </section>
 
-        window.addEventListener('resize', myChart.resize);
-    </script>
+  <!-- 应用场景 -->
+  <section id="cases" class="relative bg-gradient-to-r from-blue-800 to-gray-900 py-20 overflow-hidden">
+    <div class="container mx-auto px-6 text-center reveal">
+      <h2 class="text-4xl font-bold mb-4 glow">AI赋能的智能仓储场景</h2>
+      <p class="text-gray-300 max-w-2xl mx-auto mb-12">系统已成功应用于工业生产、文件归档、仓储物流等多个领域，助力企业提升效率。</p>
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="bg-gray-800 p-6 rounded-xl shadow-xl transform hover:scale-105 transition reveal">
+          <h3 class="text-blue-400 text-xl font-semibold mb-2">工业物料管理</h3>
+          <p class="text-gray-400 text-sm">快速分类原料与成品，实时追踪物料流向。</p>
+        </div>
+        <div class="bg-gray-800 p-6 rounded-xl shadow-xl transform hover:scale-105 transition reveal">
+          <h3 class="text-blue-400 text-xl font-semibold mb-2">生产数据归档</h3>
+          <p class="text-gray-400 text-sm">自动化文件分类与标签生成，助力文档智能管理。</p>
+        </div>
+        <div class="bg-gray-800 p-6 rounded-xl shadow-xl transform hover:scale-105 transition reveal">
+          <h3 class="text-blue-400 text-xl font-semibold mb-2">仓储物流优化</h3>
+          <p class="text-gray-400 text-sm">AI识别仓储图片并匹配数据，节省80%以上人工成本。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 联系我们 -->
+  <section id="contact" class="container mx-auto px-6 py-20 text-center reveal">
+    <h2 class="text-3xl font-bold mb-4 glow">联系我们</h2>
+    <p class="text-gray-400 mb-8">想了解更多？欢迎咨询我们的AI智能仓储专家团队。</p>
+    <a href="mailto:info@smart-sort.ai" class="bg-blue-600 hover:bg-blue-700 px-8 py-3 rounded-lg text-lg font-semibold shadow-lg transition">发送邮件</a>
+  </section>
+
+  <footer class="bg-gray-800 text-gray-400 py-8 text-center">
+    <p>© 2025 仓库物料智能分拣系统 | 智能让管理更高效</p>
+  </footer>
+
+  <!-- 动画与粒子特效 -->
+  <script>
+    ScrollReveal().reveal('.reveal', { duration: 1000, distance: '60px', easing: 'ease-out', origin: 'bottom', interval: 200 });
+
+    particlesJS('particles-js', {
+      particles: {
+        number: { value: 80 },
+        color: { value: '#3b82f6' },
+        shape: { type: 'circle' },
+        opacity: { value: 0.5 },
+        size: { value: 3 },
+        line_linked: { enable: true, distance: 120, color: '#3b82f6', opacity: 0.3, width: 1 },
+        move: { enable: true, speed: 2 }
+      },
+      interactivity: {
+        events: { onhover: { enable: true, mode: 'grab' } },
+        modes: { grab: { distance: 140, line_linked: { opacity: 0.6 } } }
+      },
+      retina_detect: true
+    });
+
+    new Typed('#typed-text', {
+      strings: ['智能识别', '自动分类', '高效管理', 'AI驱动的仓储未来'],
+      typeSpeed: 70,
+      backSpeed: 40,
+      backDelay: 1500,
+      loop: true
+    });
+  </script>
 </body>
-
 </html>
